@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        .high-score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: yellow;
+            padding: 5px;
+            border: 1px solid black;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="high-score">Highest Score: {{ high_score }}</div>
+    <h1>Quiz</h1>
+    <form method="POST">
+        {% for question in questions %}
+            <fieldset>
+                <legend>{{ question[1] }}</legend>
+                <label>
+                    <input type="radio" name="{{ question[0] }}" value="{{ question[3] }}">
+                    {{ question[3] }}
+                </label><br>
+                <label>
+                    <input type="radio" name="{{ question[0] }}" value="{{ question[4] }}">
+                    {{ question[4] }}
+                </label><br>
+                <label>
+                    <input type="radio" name="{{ question[0] }}" value="{{ question[5] }}">
+                    {{ question[5] }}
+                </label><br>
+                <label>
+                    <input type="radio" name="{{ question[0] }}" value="{{ question[6] }}">
+                    {{ question[6] }}
+                </label><br>
+            </fieldset>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+    {% if score %}
+        <h2>Your score: {{ score }}</h2>
+    {% endif %}
+    <div class="footer ">It was done by Savaş METİNOĞLU</div>
+</body>
+</html>
